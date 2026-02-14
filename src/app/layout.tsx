@@ -13,15 +13,51 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'YSAM - Construção, Remodelação e Acabamentos | Cabinda, Angola',
-  description: 'A YSAM é especializada em construção civil, remodelação residencial e corporativa, e acabamentos de luxo em Angola. Transformamos espaços em experiências de conforto.',
-  keywords: 'construção, remodelação, acabamentos, Angola, Cabinda, interiores, tetos falsos, placa 3D, YSAM',
+  metadataBase: new URL('https://www.grupoysam.com'),
+  title: {
+    default: 'YSAM - Construção, Remodelação e Acabamentos | Cabinda',
+    template: '%s | YSAM',
+  },
+  description: 'Especialistas em construção civil, remodelação de interiores e acabamentos de luxo em Cabinda, Angola. Transforme o seu espaço com a YSAM.',
+  keywords: ['construção civil', 'remodelação', 'interiores', 'acabamentos', 'Angola', 'Cabinda', 'design de interiores', 'obras', 'YSAM'],
   authors: [{ name: 'YSAM Organizações' }],
+  creator: 'YSAM Organizações',
+  publisher: 'YSAM Organizações',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'YSAM - Construção, Remodelação e Acabamentos',
-    description: 'Transformamos espaços em experiências de conforto e luxo.',
     type: 'website',
     locale: 'pt_AO',
+    url: 'https://www.grupoysam.com',
+    title: 'YSAM - Construção de Excelência e Remodelações Premium',
+    description: 'Transformamos espaços em experiências de conforto e luxo. Líderes em construção e remodelação em Cabinda.',
+    siteName: 'YSAM Organizações',
+    images: [
+      {
+        url: '/images/hero-poster.webp',
+        width: 1200,
+        height: 630,
+        alt: 'YSAM Portfolio - Remodelação de Luxo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'YSAM - Construção e Remodelação',
+    description: 'Transforme o seu espaço com a YSAM. Excelência em construção e design em Cabinda.',
+    images: ['/images/hero-poster.webp'],
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 
