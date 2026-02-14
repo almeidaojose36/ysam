@@ -84,7 +84,7 @@ export default function Header() {
           <div className="relative w-12 h-12 md:w-14 md:h-14">
             <Image
               src="/images/logo.webp"
-              alt="YSAM Logo"
+              alt="Grupo YSAM Logo"
               fill
               className="object-contain"
             />

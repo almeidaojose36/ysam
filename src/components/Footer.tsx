@@ -51,7 +51,7 @@ export default function Footer() {
                         </div>
 
                         <p className="text-white/40 text-sm leading-relaxed mb-8 max-w-xs font-light">
-                            Elevamos os padrões da construção civil e design de interiores em Angola. Cada espaço que criamos é um legado de excelência.
+                            Elevamos os padrões da construção civil e design de interiores em Angola. O Grupo YSAM cria legados de excelência.
                         </p>
 
                         <div className="flex gap-3">
@@ -131,7 +131,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
                     <p className="text-white/20 text-xs uppercase tracking-widest">
-                        © {new Date().getFullYear()} YSAM — Organizações. Todos os direitos reservados.
+                        © {new Date().getFullYear()} Grupo YSAM. Todos os direitos reservados.
                     </p>
                     <div className="flex items-center gap-8">
                         <div className="flex gap-8 text-xs text-white/20 uppercase tracking-wider">

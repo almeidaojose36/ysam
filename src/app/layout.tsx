@@ -15,14 +15,14 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.grupoysam.com'),
   title: {
-    default: 'YSAM - Construção, Remodelação e Acabamentos | Cabinda',
-    template: '%s | YSAM',
+    default: 'Grupo YSAM - Construção Civil, Remodelação e Design | Cabinda',
+    template: '%s | Grupo YSAM',
   },
-  description: 'Especialistas em construção civil, remodelação de interiores e acabamentos de luxo em Cabinda, Angola. Transforme o seu espaço com a YSAM.',
-  keywords: ['construção civil', 'remodelação', 'interiores', 'acabamentos', 'Angola', 'Cabinda', 'design de interiores', 'obras', 'YSAM'],
-  authors: [{ name: 'YSAM Organizações' }],
-  creator: 'YSAM Organizações',
-  publisher: 'YSAM Organizações',
+  description: 'O Grupo YSAM é líder em construção civil, remodelação de interiores e acabamentos de luxo em Cabinda, Angola. Transformamos o seu espaço com excelência e inovação.',
+  keywords: ['Grupo YSAM', 'YSAM', 'construção civil', 'remodelação', 'design de interiores', 'acabamentos de luxo', 'obras', 'Cabinda', 'Angola', 'arquitetura', 'engenharia'],
+  authors: [{ name: 'Grupo YSAM' }],
+  creator: 'Grupo YSAM',
+  publisher: 'Grupo YSAM',
   robots: {
     index: true,
     follow: true,
@@ -38,26 +38,26 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_AO',
     url: 'https://www.grupoysam.com',
-    title: 'YSAM - Construção de Excelência e Remodelações Premium',
-    description: 'Transformamos espaços em experiências de conforto e luxo. Líderes em construção e remodelação em Cabinda.',
-    siteName: 'YSAM Organizações',
+    title: 'Grupo YSAM - Excelência em Construção e Remodelação',
+    description: 'Líderes em construção civil e design de interiores em Cabinda. O Grupo YSAM transforma espaços em experiências de luxo.',
+    siteName: 'Grupo YSAM',
     images: [
       {
         url: '/images/hero-poster.webp',
         width: 1200,
         height: 630,
-        alt: 'YSAM Portfolio - Remodelação de Luxo',
+        alt: 'Grupo YSAM - Portfólio de Luxo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YSAM - Construção e Remodelação',
-    description: 'Transforme o seu espaço com a YSAM. Excelência em construção e design em Cabinda.',
+    title: 'Grupo YSAM - Construção e Design',
+    description: 'Transforme o seu espaço com o Grupo YSAM. Excelência em construção civil em Cabinda.',
     images: ['/images/hero-poster.webp'],
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.grupoysam.com',
   },
 };
 
@@ -68,9 +68,53 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Grupo YSAM',
+    alternateName: ['YSAM', 'YSAM Organizações'],
+    url: 'https://www.grupoysam.com',
+    logo: 'https://www.grupoysam.com/images/logo.webp',
+    description: 'Líderes em construção civil, remodelação de interiores e acabamentos de luxo em Cabinda, Angola.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Cabinda',
+      addressCountry: 'AO'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '-5.5500', // Coordinates for Cabinda roughly, better if specific
+      longitude: '12.2000'
+    },
+    priceRange: '$$$',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday'
+        ],
+        opens: '08:00',
+        closes: '18:00'
+      }
+    ],
+    sameAs: [
+      'https://www.instagram.com/grupoysam', // Hypothetical, user can fill
+      'https://www.facebook.com/grupoysam',
+      'https://www.linkedin.com/company/grupoysam'
+    ]
+  };
+
   return (
     <html lang="pt" className={`${inter.variable} ${outfit.variable}`}>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Toaster position="top-right" expand={true} richColors />
       </body>
