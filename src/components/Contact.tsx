@@ -1,6 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
+import { submitContactForm } from '@/app/actions';
 import { MapPin, Phone, Mail, Clock, Send, ArrowRight, Sparkles } from 'lucide-react';
 
 const contactInfo = [
@@ -37,6 +40,8 @@ const contactInfo = [
 const inputClasses = "w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[var(--gold)]/60 focus:bg-white/[0.06] focus:shadow-[0_0_30px_rgba(197,165,114,0.08)] transition-all duration-300";
 
 export default function Contact() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     return (
         <section id="contactos" className="section relative overflow-hidden bg-[#060606] py-32">
             {/* Ambient glow */}
@@ -84,48 +89,68 @@ export default function Contact() {
                                 <h3 className="text-xl font-bold tracking-tight">Pedir Orçamento Gratuito</h3>
                             </div>
 
-                            <form className="space-y-6">
+                            <form action={async (formData) => {
+                                setIsSubmitting(true);
+                                const result = await submitContactForm(formData);
+                                setIsSubmitting(false);
+
+                                if (result.success) {
+                                    toast.success(result.message);
+                                    (document.getElementById('contact-form') as HTMLFormElement)?.reset();
+                                } else {
+                                    toast.error(result.message || 'Erro ao enviar mensagem');
+                                }
+                            }} id="contact-form" className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="text-[10px] text-[var(--gold)] font-bold uppercase tracking-[0.2em] mb-3 block">Nome Completo</label>
-                                        <input type="text" placeholder="José Silva" className={inputClasses} />
+                                        <input name="name" type="text" placeholder="José Silva" required className={inputClasses} />
                                     </div>
                                     <div>
                                         <label className="text-[10px] text-[var(--gold)] font-bold uppercase tracking-[0.2em] mb-3 block">Email</label>
-                                        <input type="email" placeholder="jose@exemplo.com" className={inputClasses} />
+                                        <input name="email" type="email" placeholder="jose@exemplo.com" required className={inputClasses} />
                                     </div>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="text-[10px] text-[var(--gold)] font-bold uppercase tracking-[0.2em] mb-3 block">Telefone</label>
-                                        <input type="tel" placeholder="+244 9XX XXX XXX" className={inputClasses} />
+                                        <input name="phone" type="tel" placeholder="+244 9XX XXX XXX" className={inputClasses} />
                                     </div>
                                     <div>
                                         <label className="text-[10px] text-[var(--gold)] font-bold uppercase tracking-[0.2em] mb-3 block">Tipo de Serviço</label>
-                                        <select className={inputClasses + " appearance-none"}>
+                                        <select name="service" className={inputClasses + " appearance-none"}>
                                             <option value="">Selecione...</option>
-                                            <option value="residential">Remodelação Residencial</option>
-                                            <option value="corporate">Espaços Corporativos</option>
-                                            <option value="construction">Construção Civil</option>
-                                            <option value="other">Outro</option>
+                                            <option value="Remodelação Residencial">Remodelação Residencial</option>
+                                            <option value="Espaços Corporativos">Espaços Corporativos</option>
+                                            <option value="Construção Civil">Construção Civil</option>
+                                            <option value="Outro">Outro</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div>
                                     <label className="text-[10px] text-[var(--gold)] font-bold uppercase tracking-[0.2em] mb-3 block">Detalhes do Projecto</label>
                                     <textarea
+                                        name="message"
                                         rows={5}
                                         placeholder="Descreva o que pretende transformar..."
+                                        required
                                         className={inputClasses + " resize-none"}
                                     />
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full py-5 px-8 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-dark font-bold text-sm uppercase tracking-widest rounded-2xl flex items-center justify-center gap-3 hover:shadow-[0_20px_50px_rgba(197,165,114,0.25)] transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                                    disabled={isSubmitting}
+                                    className="w-full py-5 px-8 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-dark font-bold text-sm uppercase tracking-widest rounded-2xl flex items-center justify-center gap-3 hover:shadow-[0_20px_50px_rgba(197,165,114,0.25)] transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    <Send size={18} />
-                                    Solicitar Orçamento
-                                    <ArrowRight size={16} />
+                                    {isSubmitting ? (
+                                        <div className="w-5 h-5 border-2 border-dark border-t-transparent rounded-full animate-spin" />
+                                    ) : (
+                                        <>
+                                            <Send size={18} />
+                                            Solicitar Orçamento
+                                            <ArrowRight size={16} />
+                                        </>
+                                    )}
                                 </button>
                             </form>
                         </div>

@@ -348,33 +348,39 @@ body {
 /* Labels */
 .simulator-label {
   position: absolute;
-  bottom: 16px;
+  bottom: 24px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 8px;
+  padding: 8px 16px;
   border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 5;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 20;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.simulator-label:hover {
+  transform: scale(1.05);
 }
 
 .simulator-label-left {
-  left: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  left: 24px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
 }
 
 .simulator-label-right {
-  right: 16px;
-  background: rgba(197, 165, 114, 0.2);
-  border: 1px solid rgba(197, 165, 114, 0.3);
-  color: var(--gold-light);
+  right: 24px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--gold);
+  color: var(--gold);
 }
 
 /* Drag Hint */
