@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
 
@@ -8,6 +9,7 @@ const headlineLetters = 'Requalificação Moderna Para O Seu Lar'.split('');
 
 export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     useEffect(() => {
         if (videoRef.current) {
@@ -36,6 +38,15 @@ export default function Hero() {
         <section id="inicio" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
             {/* Video Background with Parallax Effect */}
             <div className="absolute inset-0 z-0">
+                <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}>
+                    <Image
+                        src="/images/hero-poster.webp"
+                        alt="Hero Poster"
+                        fill
+                        priority
+                        className="object-cover"
+                    />
+                </div>
                 <video
                     ref={videoRef}
                     autoPlay
@@ -43,9 +54,9 @@ export default function Hero() {
                     muted
                     playsInline
                     preload="auto"
-                    poster="/images/hero-poster.webp"
-                    className="w-full h-full object-cover scale-105"
-                    src="/video/hero.mp4"
+                    className={`w-full h-full object-cover scale-105 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    src="/video/hero.mp4?v=compressed"
+                    onCanPlay={() => setIsVideoLoaded(true)}
                 />
             </div>
 
@@ -69,7 +80,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Staggered Headline Animation */}
-                <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.1] tracking-tight text-white perspective-1000">
+                <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white perspective-1000">
                     {headlineLetters.map((letter, i) => (
                         <motion.span
                             key={i}
