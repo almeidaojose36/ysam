@@ -7,7 +7,7 @@ import { X, ChevronLeft, ChevronRight, ZoomIn, Sparkles, LayoutGrid } from 'luci
 
 const portfolioItems = [
     { id: 1, title: 'Serviços de Remodelação', category: 'residencial', image: '/images/residential/residential_high_ceiling_mezzanine.webp', span: 'tall', location: 'Cabinda Centro' },
-    { id: 2, title: 'Escritórios Contentorizados', category: 'corporativo', image: '/images/corporate/corporate_open_plan_office.webp', span: 'normal', location: 'Refinaria Kilamba' },
+    { id: 2, title: 'Escritórios Contentorizados', category: 'corporativo', image: '/images/corporate/corporate_open_plan_office.webp', span: 'normal', location: 'Refinaria de Cabinda' },
     { id: 3, title: 'Acesso Principal e Catracas', category: 'industrial', image: '/images/industrial/industrial_container_conversion_structure.webp', span: 'normal', location: 'Refinaria de Cabinda' },
     { id: 4, title: 'Construção de Fossa 10x10', category: 'industrial', image: '/images/industrial/construction_excavator_site_work.webp', span: 'normal', location: 'Refinaria de Cabinda' },
     { id: 5, title: 'Divisória e Estantes', category: 'residencial', image: '/images/residential/residential_room_divider_shelving.webp', span: 'tall', location: 'Cabinda' },
