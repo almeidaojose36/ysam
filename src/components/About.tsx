@@ -98,7 +98,7 @@ export default function About() {
                             </div>
 
                             {/* Stats Grid - Premiumized */}
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                                 {stats.map((stat, index) => (
                                     <motion.div
                                         key={stat.label}
@@ -106,14 +106,14 @@ export default function About() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.15, duration: 0.6 }}
-                                        className="relative p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-[var(--gold)]/50 transition-all group overflow-hidden"
+                                        className="relative p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[var(--gold)]/50 transition-all group overflow-hidden"
                                     >
                                         <div className="absolute -top-4 -right-4 w-20 h-20 bg-[var(--gold)]/5 rounded-full blur-2xl group-hover:bg-[var(--gold)]/10 transition-colors" />
-                                        <stat.icon className="w-6 h-6 text-[var(--gold)] mb-4" />
+                                        <stat.icon className="w-5 h-5 text-[var(--gold)] mb-3" />
                                         <div className="flex flex-col">
-                                            <span className="text-3xl font-bold text-white mb-1">{stat.value}</span>
-                                            <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--gold)] mb-1">{stat.label}</span>
-                                            <span className="text-[9px] text-white/40 uppercase tracking-tighter">{stat.sub}</span>
+                                            <span className="text-2xl font-bold text-white mb-1">{stat.value}</span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wide text-[var(--gold)] mb-1 leading-tight">{stat.label}</span>
+                                            <span className="text-[9px] text-white/40 uppercase tracking-normal">{stat.sub}</span>
                                         </div>
                                     </motion.div>
                                 ))}

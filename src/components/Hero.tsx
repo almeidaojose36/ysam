@@ -81,7 +81,7 @@ export default function Hero() {
 
                 {/* Staggered Headline Animation */}
                 <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white perspective-1000">
-                    {headlineLetters.map((letter, i) => (
+                    {'Requalificação Moderna Para '.split('').map((letter, i) => (
                         <motion.span
                             key={i}
                             custom={i}
@@ -93,6 +93,20 @@ export default function Hero() {
                             {letter === ' ' ? '\u00A0' : letter}
                         </motion.span>
                     ))}
+                    <span className="inline-block whitespace-nowrap">
+                        {'O Seu Lar'.split('').map((letter, i) => (
+                            <motion.span
+                                key={`suffix-${i}`}
+                                custom={i + 'Requalificação Moderna Para '.length}
+                                variants={letterVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className={letter === ' ' ? 'inline-block w-4 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
+                            >
+                                {letter === ' ' ? '\u00A0' : letter}
+                            </motion.span>
+                        ))}
+                    </span>
                 </h1>
 
                 <motion.p
