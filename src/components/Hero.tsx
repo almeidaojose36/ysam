@@ -12,6 +12,9 @@ export default function Hero() {
     useEffect(() => {
         if (videoRef.current) {
             videoRef.current.playbackRate = 0.8;
+            videoRef.current.play().catch(error => {
+                console.log("Autoplay prevented:", error);
+            });
         }
     }, []);
 
@@ -39,11 +42,11 @@ export default function Hero() {
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     poster="/images/hero-poster.webp"
                     className="w-full h-full object-cover scale-105"
-                >
-                    <source src="/video/hero.mp4" type="video/mp4" />
-                </video>
+                    src="/video/hero.mp4"
+                />
             </div>
 
             {/* Premium Multi-layered Overlay */}
