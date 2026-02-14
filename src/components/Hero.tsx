@@ -122,19 +122,19 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.5, duration: 0.5 }}
-                    className="flex flex-col sm:flex-row gap-6 relative"
+                    className="flex flex-col sm:flex-row gap-6 relative z-10"
                 >
-                    {/* Decorative glow behind button */}
-                    <div className="absolute -inset-4 bg-[var(--gold)]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    <a href="#simulador" className="btn-gold px-10 py-4 text-sm font-bold group">
+                    <a href="#simulador" className="btn-gold px-10 py-4 text-sm font-bold group relative z-20 cursor-pointer">
                         <span className="flex items-center gap-2">
                             Simulador AI <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </span>
                     </a>
-                    <a href="#portfolio" className="btn-outline px-10 py-4 text-sm font-bold">
+                    <a href="#portfolio" className="btn-outline px-10 py-4 text-sm font-bold relative z-20 cursor-pointer">
                         Galeria de Projectos
                     </a>
+
+                    {/* Decorative glow behind button - moved to end and given low z-index */}
+                    <div className="absolute -inset-4 bg-[var(--gold)]/20 blur-2xl rounded-full opacity-0 pointer-events-none z-0" />
                 </motion.div>
             </div>
 
