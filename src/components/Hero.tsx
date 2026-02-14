@@ -61,9 +61,9 @@ export default function Hero() {
             </div>
 
             {/* Premium Multi-layered Overlay */}
-            <div className="absolute inset-0 z-1 bg-black/40" />
-            <div className="absolute inset-0 z-2 bg-gradient-to-b from-black/60 via-transparent to-[#0A0A0A]" />
-            <div className="absolute inset-0 z-3 bg-gradient-to-r from-black/80 via-transparent to-black/80 opacity-40" />
+            <div className="absolute inset-0 z-[1] bg-black/40 pointer-events-none" />
+            <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-transparent to-[#0A0A0A] pointer-events-none" />
+            <div className="absolute inset-0 z-[3] bg-gradient-to-r from-black/80 via-transparent to-black/80 opacity-40 pointer-events-none" />
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 flex flex-col items-center text-center">
