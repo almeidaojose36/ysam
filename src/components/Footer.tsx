@@ -34,12 +34,12 @@ export default function Footer() {
             {/* Subtle gold border at top */}
             <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent" />
 
-            <div className="container mx-auto px-6 pt-20 pb-10">
+            <div className="container mx-auto px-8 sm:px-6 pt-20 pb-[calc(3.5rem+env(safe-area-inset-bottom))] sm:pb-10">
                 {/* Main Footer Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20 justify-items-center md:justify-items-stretch text-center md:text-left">
 
                     {/* Brand Column */}
-                    <div className="lg:col-span-4">
+                    <div className="lg:col-span-4 flex flex-col items-center md:items-start">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="relative w-12 h-12">
                                 <Image src="/images/logo.webp" alt="YSAM Logo" fill className="object-contain" />
@@ -50,11 +50,11 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <p className="text-white/40 text-sm leading-relaxed mb-8 max-w-xs font-light">
+                        <p className="text-white/40 text-sm leading-relaxed mb-8 max-w-xs font-light pr-2 sm:pr-0 mx-auto md:mx-0">
                             Elevamos os padrões da construção civil e design de interiores em Angola. O Grupo YSAM cria legados de excelência.
                         </p>
 
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 justify-center md:justify-start">
                             {socialLinks.map((social) => (
                                 <a
                                     key={social.label}
@@ -71,12 +71,12 @@ export default function Footer() {
                     </div>
 
                     {/* Services Links */}
-                    <div className="lg:col-span-2 lg:col-start-6">
+                    <div className="lg:col-span-2 lg:col-start-6 w-full max-w-xs md:max-w-none">
                         <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold)] mb-6">Serviços</h4>
                         <ul className="space-y-4">
                             {footerLinks.services.map((link) => (
                                 <li key={link.label}>
-                                    <a href={link.href} className="text-white/40 hover:text-white text-sm transition-colors duration-300 flex items-center gap-2 group">
+                                    <a href={link.href} className="text-white/40 hover:text-white text-sm transition-colors duration-300 flex items-center justify-center md:justify-start gap-2 group">
                                         <div className="w-0 group-hover:w-3 h-[1px] bg-[var(--gold)] transition-all duration-300" />
                                         {link.label}
                                     </a>
@@ -86,12 +86,12 @@ export default function Footer() {
                     </div>
 
                     {/* Company Links */}
-                    <div className="lg:col-span-2">
+                    <div className="lg:col-span-2 w-full max-w-xs md:max-w-none">
                         <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold)] mb-6">Empresa</h4>
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
                                 <li key={link.label}>
-                                    <a href={link.href} className="text-white/40 hover:text-white text-sm transition-colors duration-300 flex items-center gap-2 group">
+                                    <a href={link.href} className="text-white/40 hover:text-white text-sm transition-colors duration-300 flex items-center justify-center md:justify-start gap-2 group">
                                         <div className="w-0 group-hover:w-3 h-[1px] bg-[var(--gold)] transition-all duration-300" />
                                         {link.label}
                                     </a>
@@ -101,24 +101,24 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Details */}
-                    <div className="lg:col-span-2">
+                    <div className="lg:col-span-2 w-full max-w-xs md:max-w-none">
                         <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold)] mb-6">Contactos</h4>
                         <ul className="space-y-5 text-sm">
                             <li>
-                                <a href="tel:+244924625000" className="text-white/40 hover:text-[var(--gold)] transition-colors flex items-center gap-3">
+                                <a href="tel:+244924625000" className="text-white/40 hover:text-[var(--gold)] transition-colors flex items-start justify-center md:justify-start gap-3 leading-relaxed">
                                     <Phone size={14} className="text-[var(--gold)]/50 flex-shrink-0" />
-                                    +244 924 625 000 / +244 916 057 605
+                                    <span>+244 924 625 000 / +244 916 057 605</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:geral@orgysam.com" className="text-white/40 hover:text-[var(--gold)] transition-colors flex items-center gap-3">
+                                <a href="mailto:geral@orgysam.com" className="text-white/40 hover:text-[var(--gold)] transition-colors flex items-start justify-center md:justify-start gap-3 leading-relaxed">
                                     <Mail size={14} className="text-[var(--gold)]/50 flex-shrink-0" />
-                                    contacto@grupoysam.com
+                                    <span>contacto@grupoysam.com</span>
                                 </a>
                             </li>
-                            <li className="flex items-start gap-3">
+                            <li className="flex items-start justify-center md:justify-start gap-3">
                                 <MapPin size={14} className="text-[var(--gold)]/50 flex-shrink-0 mt-0.5" />
-                                <span className="text-white/40 leading-relaxed">
+                                <span className="text-white/40 leading-relaxed text-center md:text-left">
                                     Av. Dr Agostinho Neto,<br />
                                     Ed. Sistec, 1º Andar<br />
                                     Cabinda, Angola
@@ -129,8 +129,8 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-                    <p className="text-white/20 text-xs uppercase tracking-widest">
+                <div className="border-t border-white/5 pt-8 px-1 sm:px-0 flex flex-col sm:flex-row justify-between items-center gap-6">
+                    <p className="text-white/20 text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-widest text-center sm:text-left leading-relaxed">
                         © {new Date().getFullYear()} Grupo YSAM. Todos os direitos reservados.
                     </p>
                     <div className="flex items-center gap-8">

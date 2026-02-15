@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
-
-const headlineLetters = 'Requalificação Moderna Para O Seu Lar'.split('');
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+    const desktopHeadlinePrefix = 'Requalificação Moderna ';
+    const desktopHeadlineHighlight = 'Para O Seu Lar';
+    const srHeadline = `${desktopHeadlinePrefix}${desktopHeadlineHighlight}`;
 
     useEffect(() => {
         if (videoRef.current) {
@@ -74,30 +75,37 @@ export default function Hero() {
                     className="flex items-center gap-2 md:gap-3 mb-6 md:mb-8 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-[var(--gold)]/30 bg-[var(--gold)]/10 backdrop-blur-sm"
                 >
                     <Sparkles size={12} className="text-[var(--gold)] md:w-[14px] md:h-[14px]" />
-                    <span className="text-[var(--gold)] text-[9px] md:text-xs font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase">
+                    <span className="text-[var(--gold)] text-[11px] font-semibold tracking-[0.04em] md:hidden">
+                        Excelência em construção e design
+                    </span>
+                    <span className="hidden md:inline text-[var(--gold)] text-xs font-bold tracking-[0.4em] uppercase">
                         Excelência em Construção & Design
                     </span>
                 </motion.div>
 
-                {/* Staggered Headline Animation */}
-                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-[1.1] tracking-tight text-white perspective-1000 max-w-4xl mx-auto">
-                    {'Requalificação Moderna Para '.split('').map((letter, i) => (
-                        <motion.span
-                            key={i}
-                            custom={i}
-                            variants={letterVariants}
-                            initial="hidden"
-                            animate="visible"
-                            className={letter === ' ' ? 'inline-block w-2 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
-                        >
-                            {letter === ' ' ? '\u00A0' : letter}
-                        </motion.span>
-                    ))}
-                    <span className="inline-block whitespace-nowrap">
-                        {'O Seu Lar'.split('').map((letter, i) => (
+                {/* Mobile-first headline treatment for cleaner typography on small screens */}
+                <h1 className="font-heading text-white perspective-1000 max-w-4xl mx-auto mb-6 md:mb-8">
+                    <span className="sr-only">{srHeadline}</span>
+
+                    <motion.span
+                        aria-hidden
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.25, duration: 0.8 }}
+                        className="sm:hidden inline-flex flex-col items-center text-[clamp(2.05rem,10.8vw,2.9rem)] font-bold leading-[0.98] tracking-[-0.02em] text-balance"
+                    >
+                        <span className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.45)]">Requalificamos</span>
+                        <span className="text-[var(--gold-light)] drop-shadow-[0_8px_18px_rgba(0,0,0,0.5)]">o seu lar</span>
+                        <span className="mt-3 text-[0.53em] leading-tight tracking-[0.06em] font-medium text-white/80 uppercase">
+                            com design moderno
+                        </span>
+                    </motion.span>
+
+                    <span aria-hidden className="hidden sm:inline text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+                        {desktopHeadlinePrefix.split('').map((letter, i) => (
                             <motion.span
-                                key={`suffix-${i}`}
-                                custom={i + 'Requalificação Moderna Para '.length}
+                                key={i}
+                                custom={i}
                                 variants={letterVariants}
                                 initial="hidden"
                                 animate="visible"
@@ -106,6 +114,20 @@ export default function Hero() {
                                 {letter === ' ' ? '\u00A0' : letter}
                             </motion.span>
                         ))}
+                        <span className="inline-block whitespace-nowrap">
+                            {desktopHeadlineHighlight.split('').map((letter, i) => (
+                                <motion.span
+                                    key={`suffix-${i}`}
+                                    custom={i + desktopHeadlinePrefix.length}
+                                    variants={letterVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    className={letter === ' ' ? 'inline-block w-2 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
+                                >
+                                    {letter === ' ' ? '\u00A0' : letter}
+                                </motion.span>
+                            ))}
+                        </span>
                     </span>
                 </h1>
 
@@ -113,24 +135,30 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.8 }}
-                    className="text-sm md:text-xl text-white/80 max-w-xl md:max-w-2xl mb-8 md:mb-12 font-light leading-relaxed tracking-wide px-4"
+                    className="text-[15px] md:text-xl text-white/90 max-w-xl md:max-w-2xl mb-8 md:mb-12 font-light leading-7 md:leading-relaxed tracking-[0.008em] md:tracking-wide px-5 md:px-4 text-balance"
                 >
-                    Elevando o padrão da construção civil em Angola com <span className="text-[var(--gold-light)] font-medium">soluções inteligentes</span> e acabamentos de luxo.
+                    <span className="sm:hidden">
+                        Projetamos e executamos espaços modernos, funcionais e com acabamento premium.
+                    </span>
+                    <span className="hidden sm:inline">
+                        Elevando o padrão da construção civil em Angola com <span className="text-[var(--gold-light)] font-medium">soluções inteligentes</span> e acabamentos de luxo.
+                    </span>
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.5, duration: 0.5 }}
-                    className="flex flex-col sm:flex-row gap-4 md:gap-6 relative z-10 w-full sm:w-auto px-6 sm:px-0"
+                    className="grid grid-cols-2 gap-2 md:gap-6 relative z-10 w-full max-w-[24rem] px-4 sm:px-0 sm:w-auto sm:max-w-none sm:flex sm:justify-center sm:items-center"
                 >
-                    <a href="#simulador" className="btn-gold px-8 py-3 md:px-10 md:py-4 text-sm font-bold group relative z-20 cursor-pointer w-full sm:w-auto justify-center">
+                    <a href="#simulador" className="btn-gold h-10 md:h-auto px-3 py-2.5 md:px-10 md:py-4 text-[13px] md:text-sm font-bold group relative z-20 cursor-pointer w-full sm:w-auto justify-center whitespace-nowrap">
                         <span className="flex items-center gap-2">
                             Simulador AI <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </span>
                     </a>
-                    <a href="#portfolio" className="btn-outline px-8 py-3 md:px-10 md:py-4 text-sm font-bold relative z-20 cursor-pointer w-full sm:w-auto justify-center">
-                        Galeria de Projectos
+                    <a href="#portfolio" className="btn-outline h-10 md:h-auto px-3 py-2.5 md:px-10 md:py-4 text-[13px] md:text-sm font-bold relative z-20 cursor-pointer w-full sm:w-auto justify-center whitespace-nowrap">
+                        <span className="sm:hidden">Galeria</span>
+                        <span className="hidden sm:inline">Galeria de Projectos</span>
                     </a>
 
                     {/* Decorative glow behind button - moved to end and given low z-index */}
@@ -143,7 +171,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/40"
+                className="hidden sm:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3 text-white/40"
             >
                 <span className="text-[10px] uppercase tracking-[0.5em] font-medium">Scroll Down</span>
                 <motion.div
@@ -157,6 +185,3 @@ export default function Hero() {
         </section>
     );
 }
-
-// Final check on imports - should be at the top
-

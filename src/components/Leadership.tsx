@@ -68,7 +68,7 @@ export default function Leadership() {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center sm:justify-items-stretch">
                     {team.map((member, index) => (
                         <motion.div
                             key={member.name}
@@ -76,7 +76,7 @@ export default function Leadership() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7, delay: index * 0.15 }}
-                            className="group relative"
+                            className="group relative w-full max-w-[24rem] sm:max-w-none"
                         >
                             {/* Moving Light Effect */}
                             <div className="absolute -inset-1 bg-gradient-to-tr from-[var(--gold)]/40 via-transparent to-[var(--gold)]/20 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]" />
@@ -84,7 +84,7 @@ export default function Leadership() {
                             <div className="relative h-full bg-[#111111]/90 backdrop-blur-2xl border border-white/5 rounded-[3rem] p-6 flex flex-col items-center transition-all duration-500 group-hover:bg-[#0F0F0F] group-hover:translate-y-[-8px] shadow-2xl">
 
                                 {/* Avatar Container */}
-                                <div className="relative w-full aspect-square mb-10 group-hover:mb-8 transition-all duration-500">
+                                <div className="relative w-[78%] sm:w-full aspect-square mb-8 sm:mb-10 group-hover:mb-8 transition-all duration-500 mx-auto">
                                     {/* Rotating Border Ring */}
                                     <div className="absolute -inset-3 border border-[var(--gold)]/0 group-hover:border-[var(--gold)]/20 rounded-full transition-all duration-700 group-hover:rotate-180" />
 
@@ -93,7 +93,7 @@ export default function Leadership() {
                                             src={member.image}
                                             alt={member.name}
                                             fill
-                                            className="object-cover scale-110 group-hover:scale-120 transition-transform duration-700 ease-out"
+                                            className="object-cover object-center scale-105 sm:scale-110 group-hover:scale-110 sm:group-hover:scale-120 transition-transform duration-700 ease-out"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
                                     </div>
