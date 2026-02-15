@@ -66,21 +66,21 @@ export default function Hero() {
             <div className="absolute inset-0 z-[3] bg-gradient-to-r from-black/80 via-transparent to-black/80 opacity-40 pointer-events-none" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 flex flex-col items-center text-center">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-32 md:pt-20 flex flex-col items-center text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="flex items-center gap-3 mb-8 px-4 py-1.5 rounded-full border border-[var(--gold)]/30 bg-[var(--gold)]/5 backdrop-blur-sm"
+                    className="flex items-center gap-2 md:gap-3 mb-6 md:mb-8 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-[var(--gold)]/30 bg-[var(--gold)]/10 backdrop-blur-sm"
                 >
-                    <Sparkles size={14} className="text-[var(--gold)]" />
-                    <span className="text-[var(--gold)] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase">
+                    <Sparkles size={12} className="text-[var(--gold)] md:w-[14px] md:h-[14px]" />
+                    <span className="text-[var(--gold)] text-[9px] md:text-xs font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase">
                         Excelência em Construção & Design
                     </span>
                 </motion.div>
 
                 {/* Staggered Headline Animation */}
-                <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white perspective-1000">
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-[1.1] tracking-tight text-white perspective-1000 max-w-4xl mx-auto">
                     {'Requalificação Moderna Para '.split('').map((letter, i) => (
                         <motion.span
                             key={i}
@@ -88,7 +88,7 @@ export default function Hero() {
                             variants={letterVariants}
                             initial="hidden"
                             animate="visible"
-                            className={letter === ' ' ? 'inline-block w-4 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
+                            className={letter === ' ' ? 'inline-block w-2 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
                         >
                             {letter === ' ' ? '\u00A0' : letter}
                         </motion.span>
@@ -101,7 +101,7 @@ export default function Hero() {
                                 variants={letterVariants}
                                 initial="hidden"
                                 animate="visible"
-                                className={letter === ' ' ? 'inline-block w-4 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
+                                className={letter === ' ' ? 'inline-block w-2 md:w-6' : 'inline-block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]'}
                             >
                                 {letter === ' ' ? '\u00A0' : letter}
                             </motion.span>
@@ -113,7 +113,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.8 }}
-                    className="text-base md:text-xl text-white/70 max-w-2xl mb-12 font-light leading-relaxed tracking-wide"
+                    className="text-sm md:text-xl text-white/80 max-w-xl md:max-w-2xl mb-8 md:mb-12 font-light leading-relaxed tracking-wide px-4"
                 >
                     Elevando o padrão da construção civil em Angola com <span className="text-[var(--gold-light)] font-medium">soluções inteligentes</span> e acabamentos de luxo.
                 </motion.p>
@@ -122,14 +122,14 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.5, duration: 0.5 }}
-                    className="flex flex-col sm:flex-row gap-6 relative z-10"
+                    className="flex flex-col sm:flex-row gap-4 md:gap-6 relative z-10 w-full sm:w-auto px-6 sm:px-0"
                 >
-                    <a href="#simulador" className="btn-gold px-10 py-4 text-sm font-bold group relative z-20 cursor-pointer">
+                    <a href="#simulador" className="btn-gold px-8 py-3 md:px-10 md:py-4 text-sm font-bold group relative z-20 cursor-pointer w-full sm:w-auto justify-center">
                         <span className="flex items-center gap-2">
                             Simulador AI <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </span>
                     </a>
-                    <a href="#portfolio" className="btn-outline px-10 py-4 text-sm font-bold relative z-20 cursor-pointer">
+                    <a href="#portfolio" className="btn-outline px-8 py-3 md:px-10 md:py-4 text-sm font-bold relative z-20 cursor-pointer w-full sm:w-auto justify-center">
                         Galeria de Projectos
                     </a>
 
