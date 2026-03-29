@@ -74,7 +74,7 @@ export default function Leadership() {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center sm:justify-items-stretch">
+                <div className="flex flex-wrap justify-center gap-12">
                     {team.map((member, index) => (
                         <motion.div
                             key={member.name}
@@ -82,7 +82,7 @@ export default function Leadership() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7, delay: index * 0.15 }}
-                            className="group relative w-full max-w-[24rem] sm:max-w-none"
+                            className="group relative w-full max-w-[24rem] sm:w-[calc(50%-1.5rem)] lg:w-[calc(25%-2.25rem)] sm:max-w-none"
                         >
                             {/* Moving Light Effect */}
                             <div className="absolute -inset-1 bg-gradient-to-tr from-[var(--gold)]/40 via-transparent to-[var(--gold)]/20 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]" />
