@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import GroupPhoto from '@/components/GroupPhoto';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import AISimulator from '@/components/AISimulator';
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <GroupPhoto />
       <About />
       <Services />
       <AISimulator />

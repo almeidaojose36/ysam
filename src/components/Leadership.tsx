@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Linkedin, Instagram } from 'lucide-react';
 
 const team = [
     {
@@ -18,15 +18,21 @@ const team = [
         socials: { linkedin: '#', instagram: '#' }
     },
     {
-        name: 'Dádiva Café',
+        name: 'Pascoalina Tito',
         role: 'Coord. Administrativa',
-        image: '/images/team/Dádiva Café-Coordenadora Administrativa e Financeira.webp',
+        image: '/images/team/Pascoalina Tito.webp',
         socials: { linkedin: '#', instagram: '#' }
     },
     {
         name: 'Ronildo Bendo',
         role: 'Supervisor',
         image: '/images/team/Ronildo Bendo-Supervisor de Operações.webp',
+        socials: { linkedin: '#', instagram: '#' }
+    },
+    {
+        name: 'Joanino Bambi',
+        role: 'Assessor empresarial',
+        image: '/images/team/Joanino Bambi.webp',
         socials: { linkedin: '#', instagram: '#' }
     },
 ];
@@ -89,12 +95,23 @@ export default function Leadership() {
                                     <div className="absolute -inset-3 border border-[var(--gold)]/0 group-hover:border-[var(--gold)]/20 rounded-full transition-all duration-700 group-hover:rotate-180" />
 
                                     <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/5 group-hover:border-[var(--gold)]/50 transition-colors duration-500 shadow-2xl">
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            fill
-                                            className="object-cover object-center scale-105 sm:scale-110 group-hover:scale-110 sm:group-hover:scale-120 transition-transform duration-700 ease-out"
-                                        />
+                                        {member.image ? (
+                                            <Image
+                                                src={member.image}
+                                                alt={member.name}
+                                                fill
+                                                className="object-cover object-center scale-105 sm:scale-110 group-hover:scale-110 sm:group-hover:scale-120 transition-transform duration-700 ease-out"
+                                            />
+                                        ) : (
+                                            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(197,165,114,0.28),_transparent_45%),linear-gradient(160deg,_#181818,_#090909)]">
+                                                <span className="font-heading text-4xl font-bold tracking-[0.18em] text-[var(--gold-light)]">
+                                                    {member.name
+                                                        .split(' ')
+                                                        .map((part) => part[0])
+                                                        .join('')}
+                                                </span>
+                                            </div>
+                                        )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
                                     </div>
 
