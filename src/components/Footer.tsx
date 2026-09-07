@@ -42,7 +42,7 @@ export default function Footer() {
                     <div className="lg:col-span-4 flex flex-col items-center md:items-start">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="relative w-12 h-12">
-                                <Image src="/images/logo.webp" alt="YSAM Logo" fill className="object-contain" />
+                                <Image src="/images/logo.webp" alt="YSAM Logo" fill sizes="48px" className="object-contain" />
                             </div>
                             <div>
                                 <span className="block text-lg font-bold tracking-tighter text-white leading-none">YSAM</span>

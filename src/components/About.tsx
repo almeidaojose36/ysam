@@ -37,6 +37,7 @@ export default function About() {
                                     src="/images/team/Yuri Sambo-Diretor Geral About us Image.webp"
                                     alt="Yuri Sambo - Diretor Geral"
                                     fill
+                                    sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 50vw, 600px"
                                     className="object-cover object-top transition-transform duration-1000 group-hover:scale-105"
                                 />
                                 {/* Soft Vignette Overlay */}

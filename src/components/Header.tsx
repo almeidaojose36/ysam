@@ -86,6 +86,7 @@ export default function Header() {
               src="/images/logo.webp"
               alt="Grupo YSAM Logo"
               fill
+              sizes="(max-width: 767px) 48px, 56px"
               className="object-contain"
             />
           </div>
@@ -161,7 +162,7 @@ export default function Header() {
             <div className="flex items-center justify-between px-8 py-6 absolute top-0 left-0 right-0 z-20">
               <div className="flex items-center gap-3">
                 <div className="relative w-10 h-10">
-                  <Image src="/images/logo.webp" alt="YSAM" fill className="object-contain" />
+                  <Image src="/images/logo.webp" alt="YSAM" fill sizes="40px" className="object-contain" />
                 </div>
               </div>
               <button

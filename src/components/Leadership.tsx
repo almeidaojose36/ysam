@@ -14,19 +14,19 @@ const team = [
     {
         name: 'Estevão Mabiala',
         role: 'Diretor de Operações',
-        image: '/images/team/Estevão Mabiala-Diretor de Operações.webp',
+        image: '/images/team/estevao-mabiala.webp',
         socials: { linkedin: '#', instagram: '#' }
     },
     {
         name: 'Patrícia Quiano',
         role: 'Coord. Administrativa',
-        image: '/images/team/patricia-quiano.png',
+        image: '/images/team/patricia-quiano.webp',
         socials: { linkedin: '#', instagram: '#' }
     },
     {
         name: 'Ronildo Bendo',
         role: 'Supervisor',
-        image: '/images/team/Ronildo Bendo-Supervisor de Operações.webp',
+        image: '/images/team/ronildo-bendo.webp',
         socials: { linkedin: '#', instagram: '#' }
     },
     {
@@ -100,6 +100,7 @@ export default function Leadership() {
                                                 src={member.image}
                                                 alt={member.name}
                                                 fill
+                                                sizes="(max-width: 639px) 260px, (max-width: 1023px) 40vw, (max-width: 1279px) 22vw, 280px"
                                                 className="object-cover object-center scale-105 sm:scale-110 group-hover:scale-110 sm:group-hover:scale-120 transition-transform duration-700 ease-out"
                                             />
                                         ) : (

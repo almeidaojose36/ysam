@@ -366,11 +366,11 @@ export default function AISimulator() {
                                     />
                                 ) : (
                                     <Image
-                                        src="/images/before.jpeg"
+                                        src="/images/before.webp"
                                         alt="Antes — estado original"
                                         fill
                                         className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 50vw, 600px"
                                     />
                                 )}
 
@@ -387,11 +387,11 @@ export default function AISimulator() {
                                         />
                                     ) : (
                                         <Image
-                                            src="/images/after.jpeg"
+                                            src="/images/after.webp"
                                             alt="Depois — remodelação YSAM"
                                             fill
                                             className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 50vw, 600px"
                                         />
                                     )}
                                 </div>

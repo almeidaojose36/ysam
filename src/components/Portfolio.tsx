@@ -103,6 +103,7 @@ export default function Portfolio() {
                                     src={item.image}
                                     alt={item.title}
                                     fill
+                                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 400px"
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
 
@@ -179,6 +180,7 @@ export default function Portfolio() {
                                     src={filteredItems[lightboxIndex].image}
                                     alt={filteredItems[lightboxIndex].title}
                                     fill
+                                    sizes="100vw"
                                     className="object-contain"
                                     priority
                                 />

@@ -169,6 +169,7 @@ export default function Services() {
                                         src={feature.image}
                                         alt={feature.title}
                                         fill
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 33vw, 400px"
                                         className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
                                     />
 
