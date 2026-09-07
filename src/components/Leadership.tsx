@@ -18,9 +18,9 @@ const team = [
         socials: { linkedin: '#', instagram: '#' }
     },
     {
-        name: 'Pascoalina Tito',
+        name: 'Patrícia Quiano',
         role: 'Coord. Administrativa',
-        image: '/images/team/Pascoalina Tito.webp',
+        image: '/images/team/patricia-quiano.png',
         socials: { linkedin: '#', instagram: '#' }
     },
     {
